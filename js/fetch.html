@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Forms</title>
+    <script src="/js/js/main.js"></script>
+    <style>
+      form {
+        line-height: 30px;
+      }
+      #successMessage {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="registerForm">
+      E-Mail: <input type="text" id="email" /><br />
+      Password: <input type="password" id="passwd" /><br />
+      Date of birth: <input type="date" id="birth" /><br />
+      Favorite color:
+      <select id="color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option></select
+      ><br />
+      <input type="checkbox" id="agreed" />
+      <i>I agree to recieve emails from HTML Forms Sample Online LTD</i><br />
+      <input type="reset" value="Clear" />
+      <input type="button" value="Register" onclick="register()" />
+    </form>
+    <div id="successMessage">Congratilations, you were registered!</div>
+  </body>
+</html>

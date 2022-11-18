@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Forms</title>
+    <style>
+      body {
+        line-height: 30px;
+      }
+    </style>
+    <script>
+      function $(elementId) {
+        return document.getElementById(elementId);
+      }
+
+      function calculate() {
+        $('result').value = fibonacci($('elementN').value);
+      }
+
+      function fibonacci(n) {
+        if (n == 1 || n == 2) return 1;
+
+        let a = 1;
+        let b = 1;
+        let c = a + b;
+        series = '1, 1'; //noobie debugging
+
+        for (let i = 3; i <= n; i++) {
+          c = a + b;
+          series += ', ' + c; //noobie debugging
+          a = b;
+          b = c;
+        }
+
+        console.log(series); //noobie debugging
+        return c;
+      }
+    </script>
+  </head>
+  <body>
+    Input N: <input id="elementN" type="text" />
+    <input
+      type="button"
+      value="Calculate nth element of Fibonacci"
+      onclick="calculate()"
+    /><br />
+    Result: <input id="result" type="text" />
+  </body>
+</html>

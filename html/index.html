@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Five aspects of your architectural runway technological foundation
+    </title>
+  </head>
+  <body>
+    <h1 align="center">
+      Five aspects of your architectural runway technological foundation
+    </h1>
+    <p align="center">
+      Original:
+      <a
+        href="https://medium.com/@aleksei_golubev/five-aspects-of-your-architectural-runway-technological-foundation-9343d6ecff19"
+        >https://medium.com/@aleksei_golubev/five-aspects-of-your-architectural-runway-technological-foundation-9343d6ecff19</a
+      >
+    </p>
+    <p align="center">Author: Aleksei Golubev</p>
+    <p align="center">
+      <img
+        alt="Photo by Chris Leipelt on Unsplash"
+        width="80%"
+        src="https://miro.medium.com/max/875/1*ITsvwsRImxNzkPKnIjA9dA.jpeg"
+      />
+    </p>
+    <p align="center">
+      Photo by
+      <a
+        href="https://unsplash.com/@cleipelt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Chris Leipelt</a
+      >
+      on
+      <a
+        href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Unsplash</a
+      >
+    </p>
+    <h2><a name="contents">Contents</a></h2>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#application">Application</a></li>
+      <li><a href="#testing">Testing</a></li>
+      <li><a href="#infrastructure">Infrastructure</a></li>
+      <li><a href="#configuration">Configuration</a></li>
+      <li><a href="#documentation">Documentation</a></li>
+      <li><a href="#summary">Summary</a></li>
+    </ul>
+    <h2><a name="introduction"></a>Introduction</h2>
+    <p align="justify">
+      When you maintain an enterprise project with lots of subsystems and
+      services you probably have several teams. Each team can work on one or
+      more services or applications, have different capacity and seniority
+      level. People from one team can be moved to another for many reasons:
+      personal interests, communication, special knowledge or capacity needs and
+      so on. Newcomers should be integrated into the development process as soon
+      as possible to reduce time and cost, so you should find the shortest way
+      of introduction not only into project terminology and functional
+      requirements but into details of technical implementation as well. You may
+      have skilled developers but internal and cross teams communication may
+      essentially impact on development speed and quality. Your project will
+      probably have a legacy which should have been upgraded a couple of years
+      ago and external integrators from time to time will complain about unclear
+      interfaces and request support thereby increasing the workload of the
+      team. All these questions will bring you to the idea of technical and
+      solution management in different teams. Highly likely, it depends on the
+      size of your project, you will have a couple or even a team of architects
+      to resolve challenges above. One of the goals of architectural runway is
+      to provide standards for technology landscape and common patterns. In this
+      article I tried to express my thoughts on five basic aspects which should
+      be kept up-to-date for successful project maintenance and development.
+    </p>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+
+    <h2><a name="application"></a>Application</h2>
+    <p align="justify">
+      If you have decided to build a technological foundation in your project
+      the first topic in queue to review is your applications. Here are included
+      all services which communicate with each other; end-user and
+      administration interfaces (public and internal); custom tools for
+      supporting data, infrastructure, development and testing processes. When
+      you gather information about all implemented elements you will find
+      technologies, approaches and techniques, patterns introduced by different
+      team members.
+    </p>
+
+    <p align="justify">
+      Based on gathered information about technologies and practice evolution in
+      general, you will be able to define core concepts for your future template
+      application(s). This should be done on different levels: frameworks and
+      libraries usage; application structure and internal configuration;
+      implementation of generic functionality, e.g. logging, communication
+      interfaces, basic validation, caching, etc; common concepts, for instance
+      exception concept; design patterns. One of the important things here is to
+      stop on time: not every good idea you have should be added to the core
+      template. Sometimes it’s better to document it and provide an example of a
+      good approach (e.g. you see a good approach of implementation of business
+      rules checks: particular rules most likely shouldn’t be in template
+      application so even good validation service implementation won’t make
+      sense). We will come back to the documentation topic later.
+    </p>
+
+    <p align="justify">
+      Probably your template application at some stage will provide lots of
+      important functionality. Here you should split it into a showcase
+      application, modules (to simplify update process for teams) and template
+      itself. This will help to keep the template clean from usage examples
+      which should be deleted each time you clone it. While splitting modules
+      don’t forget that it will bring you additional maintenance complexity. It
+      depends on used technologies, organization and team structure and
+      processes. Topic of structure and processes is out of scope of this
+      article, but you also should think about it when introducing new
+      technologies (e.g. the process of subscription and license approval will
+      affect the speed of modern service or fancy library introduction into
+      development process).
+    </p>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+
+    <h2><a name="testing"></a>Testing</h2>
+    <p align="justify">
+      To keep high quality of your delivery you need a testing strategy. It’s
+      rather hard to cover all aspects of a large system with manual review.
+      With the growth of the project you will have to increase the QA team, find
+      out and hold a ratio of developers to QA engineers. Tested area and its
+      complexity can be changing on different phases of the project’s life
+      cycle. There is a risk of overloading the QA team. To secure quality you
+      have nothing to do but introduce automation. You can define your own
+      strategy or apply any common one like testing pyramid. The main idea is to
+      keep a clean and transparent understanding of process and structure.
+      Automation will make your QA team’s life easier and comparison of
+      regression and fiesta will sound less sarcastic.
+    </p>
+
+    <p align="justify">
+      From a technical point of view you need to think about transparent
+      metrics, tests classification, test framework, reporting and analytics
+      tools which will be integrated in your ticketing system. You should
+      provide your QA team development and configuration management support to
+      prepare testing areas in your ecosystem. Only collaboration of these three
+      can bring your team to clean processes and architecture. Each one of them
+      will be a customer and implementer for two others at the same time. Based
+      on the designed solution it will be possible to clarify and unify testing
+      approaches in particular teams.
+    </p>
+
+    <p align="justify">
+      Overall testing process can be centralized or decentralized… or both at
+      the same time on different levels, e.g. each subsystem can have its own
+      testing processes but on level above you probably will need integration,
+      E2E, load tests and data checks for the whole chain. There are four major
+      points to think about: strong classification, unified processes,
+      independent runs and results gathering. Presence of the first one is a
+      basic condition. When you have your tests classified you will be able to
+      exclude duplicates, optimize concept implementation and reduce overall
+      testing time.
+    </p>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+
+    <h2><a name="infrastructure"></a>Infrastructure</h2>
+    <p align="justify">
+      We use infrastructure every day and it can make the development process
+      easier or vice versa turn it into hell. Everyone can take the best tools,
+      services and hardware but those who can integrate them all together to
+      provide a safe and reliable ecosystem for stable solution development are
+      much less. Infrastructure provides a major impact on processes you have.
+      Infrastructure is about communication between technical components, people
+      and data.
+    </p>
+
+    <p align="justify">
+      To provide developers benefits but not problems you should think about how
+      they can maintain their code and documentation, manage environments, use
+      external services and deliver value to end-users. Process of getting
+      access to particular secure spaces should be clear and fast: who would
+      like to wait weeks for access to a specific area when the development team
+      becomes distributed? But at the same time it doesn’t mean that you should
+      grant access to everyone from everywhere… You should support such
+      practices like code review, static analysis, continuous integration and
+      delivery — almost no modern project can live without it.
+    </p>
+
+    <p align="justify">
+      From an exploitation point of view critical are data backup, security of
+      public interfaces and monitoring. I guess you’ve already heard a joke
+      about two types of administrators: those who don’t make backups yet and
+      those who already do. When you maintain a bunch of components don’t forget
+      to look after vulnerabilities reports and exploits distribution.
+      Transforming one of your public services to a botnet spam node, for
+      instance, is the most harmless thing that can happen. Set up metrics and
+      alarms to prevent system outages.
+    </p>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+
+    <h2><a name="configuration"></a>Configuration</h2>
+    <p align="justify">
+      Each element of your infrastructure needs to be carefully tuned and what
+      is worth to think about is how to organize configuration update and
+      rollback processes. Versioning of your configuration files and scripts
+      probably will help you but it’s not enough — there should be an isolated
+      space for configuration implementation and testing. Allocate some
+      percentage of resources to increase reliability. This will work at least
+      for two reasons: experiments with configurations won’t affect your working
+      ecosystem and you will be able to apply changes only after getting
+      successful results. Definitely, there are possible extreme cases when you
+      don’t have an option because it’s almost impossible to duplicate
+      everything.
+    </p>
+
+    <p align="justify">
+      There are three major components on application level: configuration of
+      application itself, environments configuration and processes
+      configuration. First two are tightly linked and the third one provides a
+      path to application distribution within your infrastructure. Developers
+      know what to tune in their application and more or less can understand how
+      to tune different components, but the exact values cannot be set up
+      without configuration management team support. Probably you would like to
+      include automation (and not only of course) testing to the distribution
+      process here you definitely won’t be able to dispense with the QA team.
+      Proper configuration will specify how to establish fast and clear delivery
+      and help to comply with the nonfunctional requirements.
+    </p>
+
+    <p align="justify">
+      Different teams have different requirements for configuration according to
+      their process and developed software specific. So most likely exactly the
+      same automation of the distribution process cannot be applied, but common
+      actions and helper functions can be combined to meet the need. Also you
+      can provide some top level steps with hooks implementation and manual
+      actions possibilities. Number of stages also can differ and here it should
+      be clear how they should be mapped to other solution components.
+    </p>
+
+    <h2><a name="documentation"></a>Documentation</h2>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+
+    <p align="justify">
+      The last but not least topic is documentation in a broad sense. All we are
+      doing as developers is solving business problems and description of your
+      work makes it transparent and reasonable for your customers. Documentation
+      helps to clarify what tons of hours were paid for and why it was
+      necessary. What matters is the benefits which business will get: costs
+      reduction, faster delivery, higher quality — the classical triangle.
+      Direct connection between your solution and the following positive impact
+      should be shown in reports.
+    </p>
+
+    <p align="justify">
+      The technical audience of documentation should be able to find answers to
+      the core question: Should we use the solution? It is quite a logical
+      question when there are teams with already established development
+      approaches. Don’t hesitate to provide clear instructions on approach usage
+      and migrating existing code base and processes to new rails mixed with
+      guidelines and common problems solutions description. Teams should
+      understand the positive effects on their daily work they will get if they
+      adopt the approach. Solution design specification will help you to find
+      its weak points, involve engineers into improvement processes — get
+      feedback and maybe support with development.
+    </p>
+
+    <p align="justify">
+      It is worth to clarify rules and templates for documentation forms used on
+      a daily basis such as: code documentation (self documented code usually
+      exists only in imagination), specification of APIs and user stories,
+      howtos. Sometimes teams should be pushed to adopt the ongoing documenting
+      process to share experience, save knowledge and inform on usage of what
+      they produce. It may be painful or not depending on the tools provided,
+      fortunately, there is an abundance of them.
+    </p>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+
+    <h2><a name="summary"></a>Summary</h2>
+    <p align="justify">
+      Article does not and can not cover all possible aspects and scenarios, and
+      you will definitely have your special case. Topics mentioned in the
+      article are highly coupled. Changes in one area affect others which makes
+      concepts implementation unique in each particular situation. Nevertheless
+      common practices (like InnerSource for instance) and patterns can be
+      found, adapted depending on demands, applied and integrated into daily
+      activities to achieve results of successful project evolution. Of course
+      smart architecture is not enough: amount of legacy code and its quality,
+      team involvement and motivation, business readiness for improvements
+      should be taken into account as well. Implementation looks like a
+      complicated endless process and it is, but a journey of a thousand miles
+      begins with the first step. Even small adjustments can make a team’s life
+      a little bit easier.
+    </p>
+    <p align="right"><a href="#contents">&uarr;</a></p>
+  </body>
+</html>

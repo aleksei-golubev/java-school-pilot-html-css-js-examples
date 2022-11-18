@@ -1,0 +1,37 @@
+* {
+  font-family: verdana;
+  font-size: 12px;
+  color: #bfbfff;
+}
+body {
+  background-color: #000040;
+}
+form {
+  line-height: 30px;
+  /*border: 1px solid #bcbcfc;*/
+  background-color: #222262;
+  padding: 10px;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+input,
+select,
+textarea,
+.input-file,
+input[type='reset'],
+input[type='submit'] {
+  background-color: #444480;
+  border-width: 0px;
+  padding: 5px 20px;
+  margin: 3px;
+}
+input[type='file'] {
+  display: none;
+}

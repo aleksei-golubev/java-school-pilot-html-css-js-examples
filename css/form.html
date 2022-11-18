@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Forms</title>
+    <link href="css/form.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <form action="/registration" method="POST" enctype="multipart/form-data">
+      E-Mail: <input type="text" name="email" /><br />
+      Password: <input type="password" name="passwd" /><br />
+      Date of birth: <input type="date" name="birth" /><br />
+      Sex: <input type="radio" name="sex" value="m" /> Male
+      <input type="radio" name="sex" value="f" /> Female<br />
+      Photo:
+      <label class="input-file">
+        <input type="file" name="photos" /> Choose photo </label
+      ><br />
+      Favorite color:
+      <select name="color">
+        <option value="red" class="red">Red</option>
+        <option value="green" class="green">Green</option>
+        <option value="blue" class="blue">Blue</option></select
+      ><br />
+      Why should we let you register?<br />
+      <textarea rows="5" cols="47" name="esse">
+      Please, write us some nice words ;-)  
+      </textarea
+      ><br />
+      <input type="checkbox" name="agreed" />
+      <i>I agree to recieve emails from HTML Forms Sample Online LTD</i><br />
+      <input type="hidden" name="check" value="s0meh1ddenc0de" />
+      <input type="reset" value="Clear" />
+      <input type="submit" value="Register" />
+    </form>
+  </body>
+</html>
